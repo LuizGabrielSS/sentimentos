@@ -10,13 +10,19 @@ def analisar_frase(classificador, vetorizador, frase):
     return frase, classificador.predict(vetorizador.transform([frase]))
 
 def obter_dados_das_fontes():
-    with open("imdb_labelled.txt", "r") as arquivo_texto:
+    with open("dados/imdb_labelled.txt", "r") as arquivo_texto:
         dados = arquivo_texto.read().split('\n')
          
-    with open("amazon_cells_labelled.txt", "r") as arquivo_texto:
+    with open("dados/amazon_cells_labelled.txt", "r") as arquivo_texto:
         dados += arquivo_texto.read().split('\n')
 
-    with open("yelp_labelled.txt", "r") as arquivo_texto:
+    with open("dados/yelp_labelled.txt", "r") as arquivo_texto:
+        dados += arquivo_texto.read().split('\n')
+
+    with open("dados/comentarios negativos.txt", "r") as arquivo_texto:
+        dados += arquivo_texto.read().split('\n')
+
+    with open("dados/comentarios positivos.txt", "r") as arquivo_texto:
         dados += arquivo_texto.read().split('\n')
 
     return dados
